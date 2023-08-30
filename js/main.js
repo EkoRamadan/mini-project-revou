@@ -30,3 +30,17 @@ submit.addEventListener("click",(i)=>{
     messageD.innerHTML= message
     genderD.innerHTML= gender
 })
+
+// on scroll
+
+window.addEventListener("scroll",()=>{
+  const ofset = Math.floor(window.scrollY)
+  
+  
+  if( ofset > 10){
+    document.querySelector(".headerC").classList.add("active")
+  }else{
+    document.querySelector(".headerC").classList.remove("active")
+  }
+  
+})

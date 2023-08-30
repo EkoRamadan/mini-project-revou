@@ -14,11 +14,9 @@
     text-decoration: none;
     font-size: 1rem;
     transition: .3s linear;
-    /* position: relative; */
-    /* overflow: hidden; */
-    /* z-index: 1; */
+    z-index: 1; 
 }
-/* html{font-size: 65%;} */
+html{scroll-behavior: smooth}
 body{
     /* display: block; */
     position: relative;
@@ -31,16 +29,18 @@ body{
 section{
     width: 100%;
     padding: 1.5rem 7%; 
-    border-bottom: 2px solid var(--clr-black);}
+    padding-block: 9rem;
+    border-bottom: .1px solid var(--clr-black);}
 .row{display: flex;}
-.title{font-size: 2rem;}
+.title{font-size: 2.3rem;}
 .row:first-child{flex-direction: column;}
-.row:first-child p{font-size: 1.2rem;}
+.row:first-child p{font-size: 1.5rem;}
 /* global-css end */
 
 /* header-start */
 header{
     width: 100%;
+    position: absolute;
     padding: 1rem 7%;
     border-bottom: 1px solid var(--clr-primary02);
     background-image: linear-gradient(45deg,var(--clr-aqua) 5%,
@@ -49,6 +49,14 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 999;
+    opacity: 1;
+    transition: .5s linear;
+}
+header.active{
+  position: sticky;
+  top:0;
+  opacity: .8;
 }
 header .brand{
     width: 3rem;
@@ -76,21 +84,30 @@ header li a.active{background-color: var(--clr-primary02);}
 .tggl-nav i{
     line-height: 40px;
     font-size: 3rem;
+    color: var(--clr-white);
 }
 /* header-end */
 
 /* home-section-start */
 .home{
     background-repeat: no-repeat;
+    padding-block: 9rem;
     background-size: cover;
     background-position: 0 10%;
     background-image: url("../img/img-benner.jpg");
     border-bottom: 1px solid var(--clr-white);
     box-shadow: 0px 1px 0px var(--clr-aqua),
                 0px 5px 6px var(--clr-primary02);
+    border-bottom: 2px solid var(--clr-aqua)
 }
-.home :is(h1,span){font-size: 2rem;}
-.home p{font-size: 1.5rem;}
+.home :is(h1,span){
+  font-size: 2rem;
+  text-shadow: 2px 2px 3px rgba(4, 4,4,.5) ;
+}
+.home p{
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 3px rgba(4, 4,4,.5) ;
+}
 .home main{
     height: 25rem;
     color: var(--clr-white);
@@ -127,13 +144,19 @@ header li a.active{background-color: var(--clr-primary02);}
     aspect-ratio: 1/2;
     box-shadow: 0 0 5px 5px var(--clr-primary02);
     background-color: var(--clr-primary02);
-    animation: backtranlate 8s infinite;
+    animation: backtranlate 30s infinite;
+    transform-origin: 50% 50%;
 }
-.inv .row:last-child{padding-left: 1.5rem;}
+.inv .row:last-child{
+  padding-top: 3rem;
+  padding-left: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .inv .profile{
-    padding: 2rem; 
+    padding: 1rem; 
     text-align: center; 
-    width: 140px;
+    width: 120px;
     line-height: 1.1;
 }
 .inv .profile-circle{
@@ -144,6 +167,10 @@ header li a.active{background-color: var(--clr-primary02);}
     overflow: hidden;
     border: 1px solid var(--clr-primary02);
     box-shadow: 0 0 8px 4px var(--clr-primary02);
+}
+.profile-circle img{
+  width: 100%;
+  transform: scale(1 1);
 }
 .inv .name{
     font-size: 1.3rem;
@@ -164,27 +191,35 @@ header li a.active{background-color: var(--clr-primary02);}
     padding: 5px;
 }
 .contact .row:last-child .right{
+   font-size: 1.5rem;
     padding: 1rem;
     border: 2px solid var(--clr-primary02);
     border-radius: 5px;
+}
+.contact .row:last-child .right .box-info p :is(b, span) {
+  font-size: 1.5rem;
 }
 .input-grup{
     display: flex;
     width: 100%;
     margin-bottom: 5px;
+    align-items: center;
+    
 }
-.input-grup > label{width: 30%;}
+.input-grup > label{width: 30%;font-size: 1.5rem;}
 .input-grup > :is(input,textarea){
     padding-left: 5px;
     width:70%;
-    height: 2rem;
+    height: 2.8rem;
     background-color: rgba(255,255,255,.4);
     border: 1px solid var(--clr-primary02);
     color:var(--clr-black);
+    font-size: 1.5rem;
 }
 form > button{
     margin-top: 1rem;
-    padding-block: 5px;
+    font-size: 1.5rem;
+    padding-block: .8rem;
     background-color: var(--clr-primary02);
     width: 100%;
     color: var(--clr-black);
@@ -213,14 +248,19 @@ footer p{color: #fff}
 header ul:hover li a:not(:hover){border: 1px solid var(--clr-primary01);}
 /* header-end */
 /* inv-start */
-.container-of-profile:hover .profile-circle:is(:hover){ border: 1px solid var(--clr-aqua);
+.container-of-profile:hover .profile-circle:is(:hover){ 
+    border: 1px solid var(--clr-aqua);
     box-shadow: 0 0 8px 4px var(--clr-aqua);
+}
+.container-of-profile:hover .profile-circle:is(:hover) img{ 
+  translate: scale(1.2 1.2);
 }
 .container-of-profile:hover .profile-circle:not(:hover){ border: 1px solid transparent;
     box-shadow: 0 0 8px 1px var(--clr-primary02) ;
 }
 @keyframes backtranlate {
     0%,100%{transform: rotateZ(20deg) translate(0,0);}
+    30%{transform: rotateZ(210deg) translate(10%,10%)}
     50%{transform: rotateZ(20deg) translate(10%,20%);}
 }
 /* animation-end */
@@ -229,21 +269,28 @@ header ul:hover li a:not(:hover){border: 1px solid var(--clr-primary01);}
 /* mobile */
 @media (min-width: 100px) and (max-width: 600px) {
     html{font-size: 100%;} 
-    section{height: calc(100vh - 100px);}
+    section{height: calc(100vh - 10px);}
     header{position: relative;}
+    .home :is(h1, span){
+      font-size: 2.5rem;
+    }
     header ul{
         position: absolute;
         top:100%;
         left: 0;
+        right: 0;
         background-color: var(--clr-primary01);
         display: flex;
         flex-direction: column;
-        width: 100%;
         height: 0;
         overflow: hidden;
     }
+    header li a{
+      border: 1px solid transparent;
+      border-bottom-color: var(--clr-primary02)
+    }
     ul.active ~ .tggl-nav i{color: var(--clr-primary02);}
-    ul.active{height: 15.8rem;}
+    ul.active{height: 14.4rem;}
     ul li,
     li a{display: block;}
     ul li a{padding: 1rem 2rem;}
