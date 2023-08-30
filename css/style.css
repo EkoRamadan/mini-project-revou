@@ -267,7 +267,7 @@ header ul:hover li a:not(:hover){border: 1px solid var(--clr-primary01);}
 
 /* query */
 /* mobile */
-@media (min-width: 100px) and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     html{font-size: 100%;} 
     section{height: calc(100vh - 10px);}
     header{position: relative;}

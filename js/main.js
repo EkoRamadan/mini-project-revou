@@ -23,7 +23,7 @@ submit.addEventListener("click",(i)=>{
         alert("lengkapi form")
         return;
     }
-    alert(`${gender}`)
+    
     nameD.innerHTML= name
     headerD.innerHTML= name
     dateD.innerHTML= date
