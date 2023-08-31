@@ -243,6 +243,31 @@ footer{
 footer p{color: #fff}
 /* footer-end */
 
+/* about .html start */
+section.about{
+  padding-top: 0
+}
+.about .row.abt{
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.row.abt p{
+  max-width:450px;
+  margin: auto;
+  font-size: 1.5rem;
+}
+.about .img-profil{
+  margin: 2rem auto;
+  width: 80px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+.about .img-profil img{
+  width: 100%;
+}
+
+
 /* animation-start */
 /* header-start */
 header ul:hover li a:not(:hover){border: 1px solid var(--clr-primary01);}
@@ -291,6 +316,7 @@ header ul:hover li a:not(:hover){border: 1px solid var(--clr-primary01);}
     }
     ul.active ~ .tggl-nav i{color: var(--clr-primary02);}
     ul.active{height: 14.4rem;}
+    body.about ul.active{height: 10.8rem;}
     ul li,
     li a{display: block;}
     ul li a{padding: 1rem 2rem;}

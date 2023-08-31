@@ -19,7 +19,8 @@ submit.addEventListener("click",(i)=>{
     const message = document.getElementById("message").value
     const gender = document.querySelector("input[name='gender']:checked").value
     
-    if(!name || !message  || !date || !gender) {
+    
+    if(name == "" || message == ""  || date == "" || gender == "" || (info)) {
         alert("lengkapi form")
         return;
     }
